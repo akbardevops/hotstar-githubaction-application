@@ -26,7 +26,23 @@ jobs:
            username: ${{ secrets.Docker_USERNAME }}
            password: ${{ secrets.Docker_PASSWORD }}
       
-      - name: push to docker hub and deployed to docker container
-        run: |
-           docker push akbarmohd/hotstar01:v1
-           docker run -d --name hotstar -p 3000:3000 akbarmohd/hotstar01:v1
+      # - name: push to docker hub and deployed to docker container
+      #   run: |
+      #      docker push akbarmohd/hotstar01:v1
+      #      docker run -d --name hotstar -p 3000:3000 akbarmohd/hotstar01:v1
+  deploy-to-ec2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/hotstar-githubaction-application
+            docker pull
+            docker stop test
+            docker rm test
+            docker run -d --name hotstar -p 3000:3000 akbarmohd/hotstar01:v1
