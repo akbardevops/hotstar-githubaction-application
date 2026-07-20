@@ -33,8 +33,8 @@ function App() {
     </div>
     <div className='lg'>
     <img src="https://img10.hotstar.com/image/upload/f_auto,h_148/sources/r1/cms/prod/2744/1602744-t-f24fc98823fa" alt="" />
-            <h3>2026 . 2h 54m . 4 languages . <span>U/A 16+</span> </h3>
-            <p>In a crime-infested town, Akbar bhai and his gang are the full powerful leaders in the town powers. To combat this reign and seek revenge, Inspector </p>
+            <h3>2023 . 2h 54m . 4 languages . <span>U/A 16+</span> </h3>
+            <p>In a crime-infested town, Kannan bhai and his gang are the reigning powers. To combat this reign and seek revenge, Inspector </p>
             <h3>Action | Drama | Thriller | Drugs</h3>
             <button className='btn'>Subscribe to Watch</button>
             <button className='bb btn'>+</button>
@@ -52,7 +52,7 @@ function App() {
       <Genre/>
       <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies}/>
       <Row title="Romantic Movies" fetchUrl={requests.fetchRomanceMovies}/>
-      <Row title="Popular Movies" fetchUrl={requests.fetchDoc}/>
+      <Row title="Populer Movies" fetchUrl={requests.fetchDoc}/>
       <Footer/>
     </div>
     
