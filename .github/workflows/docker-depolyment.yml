@@ -44,7 +44,5 @@ jobs:
           script: |
             cd /home/ubuntu/hotstar-githubaction-application
             docker push akbarmohd/hotstar01:${{ github.run_number }}
-            docker stop hotstar || true
-            docker rm hotstar || true
             docker run -d --name hotstar -p 3000:3000 akbarmohd/hotstar01:${{ github.run_number }}
         
