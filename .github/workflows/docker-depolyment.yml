@@ -25,6 +25,8 @@ jobs:
         with:
            username: ${{ secrets.Docker_USERNAME }}
            password: ${{ secrets.Docker_PASSWORD }}
+      - name: push to dockerhub
+        run: docker push ${{ secrets.Docker_USERNAME }}/hotstar01:${{ github.run_number }}
       
       # - name: push to docker hub and deployed to docker container
       #   run: |
@@ -43,7 +45,6 @@ jobs:
           port: 22
           script: |
             cd /home/ubuntu/hotstar-githubaction-application
-            docker push ${{ secrets.Docker_USERNAME }}/hotstar01:${{ github.run_number }}
             docker pull ${{ secrets.Docker_USERNAME }}/hotstar01:${{ github.run_number }}
             docker run -d --name hotstar -p 3000:3000 ${{ secrets.Docker_USERNAME }}/hotstar01:${{ github.run_number }}
         
