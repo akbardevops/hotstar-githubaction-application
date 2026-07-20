@@ -21,7 +21,7 @@ jobs:
         run: docker build -t akbarmohd/hotstar01:v1
       
       - name: docker login
-        uses: docker/login-action@v4
+        uses: docker/login-action@v3
         with:
            username: ${{ secrets.Docker_USERNAME }}
            password: ${{ secrets.Docker_PASSWORD }}
